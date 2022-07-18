@@ -2,7 +2,7 @@ require('dotenv').config();
 
 let mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI); 
+mongoose.connect(encodeURIComponent(process.env.MONGO_URI)); 
 
 let Person;
 
