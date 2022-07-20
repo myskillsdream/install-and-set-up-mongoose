@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 let mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true }); 
+mongoose.connect(process.env.MONGO_URI); 
 
 const Schema = mongoose.Schema;
 
@@ -11,7 +11,7 @@ const personSchema = new Schema({
   favoriteFoods: [String]
 });
 
-const Person = mongoose.model("Person", personSchema);
+let Person = mongoose.model("Person", personSchema);
 
 console.log(Person)
 
