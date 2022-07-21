@@ -37,10 +37,14 @@ const createAndSavePerson = (done) => {
   }
   );
   document.save(function(err, data) {
+
     console.log(data)
-  if (err) return console.error(err);
-  done(null /*, data*/);
+    
+  if (err) {
+    return console.error(err);
+  }
     });   
+    done(null /*, data*/);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
