@@ -28,31 +28,20 @@ let ijabor = new Person({
 
 // let Person;
 
-// const createAndSavePerson = (done) => {
+let createAndSavePerson = (done) => {
 
-//   let document = new Person({
-//     name: "Ijabor",
-//     age: 32,
-//     favoriteFoods: ["rice", "beans"]
-//   }
-//   );
-//   document.save(function(err, data) {
+  let document = new Person({
+    name: "Ijabor",
+    age: 32,
+    favoriteFoods: ["rice", "beans"]
+  }
+  );
+  document.save((err, data) => {
 
-//     if (err) return console.error(err);
-//     done(null, data)
-//   });
-    
-// };
-
-var createAndSavePerson = function() {
-  var person = new Person({name: "Ijabor Isioma", age: 37, favoriteFoods: ["beans", "rice"]});
-
-  person.save(function(err, data) {
-    if (err) {
-     console.log(err)
-    }
-    console.log(data)
+    if (err) return console.error(err);
+    done(null, data)
   });
+    
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
