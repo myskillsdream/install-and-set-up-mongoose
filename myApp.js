@@ -28,7 +28,7 @@ let ijabor = new Person({
 
 // let Person;
 
-let createAndSavePerson = (done) => {
+const createAndSavePerson = (done) => {
 
   let document = new Person({
     name: "Ijabor",
@@ -36,13 +36,17 @@ let createAndSavePerson = (done) => {
     favoriteFoods: ["rice", "beans"]
   }
   );
-  document.save((err, data) => {
+  document.save((error, data) => {
 
-    if (err) return console.error(err);
-    done(null, data)
+    if (error) {
+      console.log(error);
+    }else{
+      done(null, data)
+    }
+    
   });
     
-};
+}
 
 const createManyPeople = (arrayOfPeople, done) => {
   done(null /*, data*/);
