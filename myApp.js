@@ -44,12 +44,14 @@ let ijabor = new Person({
     
 // };
 
-var createAndSavePerson = function(done) {
-  var person = new Person({name: "Ijabor Isioma", age: 35, favoriteFoods: ["beans", "rice"]});
+var createAndSavePerson = function() {
+  var person = new Person({name: "Ijabor Isioma", age: 37, favoriteFoods: ["beans", "rice"]});
 
   person.save(function(err, data) {
-    if (err) return console.error(err);
-    done(null, data)
+    if (err) {
+     console.log(err)
+    }
+    console.log(data)
   });
 };
 
