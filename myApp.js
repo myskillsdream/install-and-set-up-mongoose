@@ -38,13 +38,13 @@ let ijabor = new Person({
 
 const createAndSavePerson = (done) => {
 
-  let document = new Person({
+  let person = new Person({
     name: "Ijabor",
     age: 32,
     favoriteFoods: ["rice", "beans"]
   }
   );
-  document.save((error, data) => {
+  person.save((error, data) => {
 
     if (error) {
       console.log(error);
