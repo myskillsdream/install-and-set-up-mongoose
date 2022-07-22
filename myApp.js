@@ -143,9 +143,6 @@ let queryChain = (done) => {
     console.log(error)
     done(null, people);
   });
-
-
-  
 };
 
 
