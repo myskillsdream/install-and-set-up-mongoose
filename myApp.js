@@ -132,20 +132,16 @@ let removeManyPeople = (done) => {
   })
 };
 
-let queryChain = function(done) {
-  let foodToSearch = "burrito";
-  Person
-    .find({ favouriteFoods: foodToSearch })
-    .sort({name: 1})
-    .limit(2)
-    .select("-age")
-    .exec(function(err, data) {
-      
-      if (err) {
-        console.log(err);
-      }
-      done(null, data);
-    });
+var queryChain = function(done) {
+  const foodToSearch = 'burrito';
+  Person.find({food:foodToSearch})
+        .sort({ name: 1 }) // -1 for descending
+        .limit(2)
+        .select({ age: 0 })
+        .exec((err,data)=>{
+          if(err) console.log(err);
+          done(null, data);
+        })
 };
 
 
