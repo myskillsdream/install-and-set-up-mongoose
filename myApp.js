@@ -140,9 +140,9 @@ let queryChain = function(done) {
     .limit(2)
     .select("-age")
     .exec(function(err, data) {
-      console.log(data);
+      
       if (err) {
-        done(err);
+        console.log(err);
       }
       done(null, data);
     });
