@@ -132,11 +132,22 @@ let removeManyPeople = (done) => {
   })
 };
 
-const queryChain = (done) => {
+let queryChain = (done) => {
   const foodToSearch = "burrito";
 
-  done(null /*, data*/);
+  Person.find({ favoriteFoods: foodToSearch })
+  .sort({ name: -1 })
+  .limit(5)
+  .select({ favoriteFoods: 0 })
+  .exec(function(error, people) {
+    console.log(error)
+    done(null, people);
+  });
+
+
+  
 };
+
 
 /** **Well Done !!**
 /* You completed these challenges, let's go celebrate !
