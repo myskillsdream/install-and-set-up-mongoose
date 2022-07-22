@@ -4,7 +4,13 @@ require('mongodb');
 
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGO_URI); 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+mongoose.set('useUnifiedTopology', true);
+
+mongoose.connect(process.env.MONGO_URI).then(() => console.log('Connect to MongoDB..'))
+.catch(err => console.error('Could not connect to MongoDB..', err)); 
 
 var Schema = mongoose.Schema;
 
