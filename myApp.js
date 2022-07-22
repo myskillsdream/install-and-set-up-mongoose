@@ -132,7 +132,7 @@ let removeManyPeople = (done) => {
   })
 };
 
-var queryChain = function(done) {
+const queryChain = function(done) {
   var foodToSearch = "burrito";
   Person.find({favoriteFoods:foodToSearch})
         .sort({ name:1 })
