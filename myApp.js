@@ -132,17 +132,20 @@ let removeManyPeople = (done) => {
   })
 };
 
-let queryChain = (done) => {
-  const foodToSearch = "burrito";
-
-  Person.find({ favoriteFoods: foodToSearch })
-  .sort({ name: -1 })
-  .limit(5)
-  .select({ favoriteFoods: 0 })
-  .exec(function(error, people) {
-    console.log(error)
-    done(null, people);
-  });
+let queryChain = function(done) {
+  let foodToSearch = "burrito";
+  Person
+    .find({ favouriteFoods: foodToSearch })
+    .sort({name: 1})
+    .limit(2)
+    .select("-age")
+    .exec(function(err, data) {
+      console.log(data);
+      if (err) {
+        done(err);
+      }
+      done(null, data);
+    });
 };
 
 
