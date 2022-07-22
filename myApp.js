@@ -56,34 +56,34 @@ const createAndSavePerson = (done) => {
     
 };
 
-var arrayOfPeople = [
+const arrayOfPeople = [
   {name: "Emma", age: 25, favoriteFoods: ["beans and rice"]},
   {name: "Ijabor", age: 35, favoriteFoods: ["rice and plantain"]},
   {name: "Lucky", age: 43, favoriteFoods: ["Fish"]}
 ];
 
-var createManyPeople = function(arrayOfPeople, done) {
+const createManyPeople = function(arrayOfPeople, done) {
   Person.create(arrayOfPeople, function (err, people) {
     if (err) return console.log(err);
     done(null, people);
   });
 };
 
-var findPeopleByName = function(personName, done) {
+const findPeopleByName = function(personName, done) {
   Person.find({name: personName}, function (err, personFound) {
     if (err) return console.log(err);
     done(null, personFound);
   });
 };
 
-var findOneByFood = function(food, done) {
+const findOneByFood = function(food, done) {
   Person.findOne({favoriteFoods: food}, function (err, data) {
     if (err) return console.log(err);
     done(null, data);
   });
 };
 
-var findPersonById = function(personId, done) {
+const findPersonById = function(personId, done) {
   Person.findById(personId, function (err, data) {
     if (err) return console.log(err);
     done(null, data);
@@ -126,8 +126,10 @@ const removeById = function(personId, done) {
 
 const removeManyPeople = (done) => {
   const nameToRemove = "Mary";
-
-  done(null /*, data*/);
+  Person.remove({name: nameToRemove}, (err, response) => {
+    if(err) return console.log(err);
+    done(null, response);
+  })
 };
 
 const queryChain = (done) => {
